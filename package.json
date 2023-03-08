@@ -1,6 +1,6 @@
 {
   "name": "minecraft-json-block",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "scripts": {
     "start": "blocks start",
