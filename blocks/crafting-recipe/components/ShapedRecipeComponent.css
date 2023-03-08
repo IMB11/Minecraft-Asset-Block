@@ -3,9 +3,27 @@
   grid-template-columns: repeat(3, 0fr);
 }
 
-div.recipe-grid-shaped > div {
-  width: 35px;
-  height: 35px;
+* {
+  image-rendering: crisp-edges;
+}
+
+.recipe-container {
+  margin: 1rem;
+  padding: 2rem 2rem;
+  text-align: center;
+}
+
+.recipe-container > div,
+.recipe-container > img {
+  padding: 0.5rem;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+div.recipe-grid-shaped > div,
+.slot {
+  width: 32px;
+  height: 32px;
   display: flex;
   justify-content: center;
   background: #8b8b8b;
