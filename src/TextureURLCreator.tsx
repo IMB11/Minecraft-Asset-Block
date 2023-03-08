@@ -18,4 +18,4 @@ export function getTextureURL(location: string): string {
     return missingTexture;
 }
 
-export const blockBaseURL = "https://raw.githubusercontent.com/mineblock11/Minecraft-Asset-Block/main/public/rendered-blocks/"
+export const blockBaseURL = "https://raw.githubusercontent.com/mineblock11/Minecraft-Asset-Block/main/src/rendered-blocks/"

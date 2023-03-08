@@ -41,12 +41,12 @@ export default function ShapedRecipeComponent(props: {
 
     if (resultItemTex == missingTexture) {
         if (resultID[0] !== "minecraft") {
-            <div><img src={`${blockBaseURL}${resultID[1]}.png`} width="30" height="30" /></div>
+            resultImage = (<div><img src={resultItemTex} /></div>)
         } else {
-            resultImage = (<div><img src={resultItemTex} width="30" height="30" /></div>)
+            resultImage = <div><img src={`${blockBaseURL}${resultID[1]}.png`} width={60} height={60} /></div>
         }
     } else {
-        resultImage = (<div><img src={resultItemTex} width="30" height="30" /></div>)
+        resultImage = (<div><img src={resultItemTex} /></div>)
     }
 
     return (<>
@@ -82,12 +82,12 @@ export default function ShapedRecipeComponent(props: {
 
                                 if (itemTex == missingTexture) {
                                     if (identifier[0] !== "minecraft") {
-                                        return (<div><img src={itemTex} width="30" height="30" /></div>)
+                                        return (<div><img src={itemTex} /></div>)
                                     } else {
-                                        return (<div><img src={`${blockBaseURL}${identifier[1]}.png`} width="30" height="30" /></div>)
+                                        return (<div><img src={`${blockBaseURL}${identifier[1]}.png`} width={60} height={60} /></div>)
                                     }
                                 } else {
-                                    return (<div><img src={itemTex} width="30" height="30" /></div>)
+                                    return (<div><img src={itemTex} /></div>)
                                 }
                             }))}
                         </div>
