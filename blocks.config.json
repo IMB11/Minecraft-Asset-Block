@@ -3,11 +3,11 @@
     "type": "file",
     "id": "file-block",
     "title": "Minecraft Crafting Recipe",
-    "description": "A block that visualizes crafting recipes for Minecraft: Java Edition",
+    "description": "A block that visualizes crafting recipe JSON files for Minecraft: Java Edition",
     "entry": "blocks/crafting-recipe/index.tsx",
     "matches": [
       "*.json"
     ],
-    "example_path": "https://github.com/facebook/react/blob/main/packages/react-dom/index.js"
+    "example_path": "https://github.com/InventivetalentDev/minecraft-assets/blob/1.19/data/minecraft/recipes/beehive.json"
   }
 ]

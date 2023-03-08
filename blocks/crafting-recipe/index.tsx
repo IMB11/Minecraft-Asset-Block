@@ -25,7 +25,7 @@ export default function ExampleFileBlock(props: FileBlockProps) {
         renderer = <ShapedRecipeComponent recipe={data} />
         break;
       default:
-        jsonError = <ErrorComponent title="Recipe Parse Error" message="Invalid Recipe Type" />
+        jsonError = <ErrorComponent title="Recipe Parse Error" message="Invalid Recipe Type (currently only supports shaped recipes)" />
         break;
     }
 
