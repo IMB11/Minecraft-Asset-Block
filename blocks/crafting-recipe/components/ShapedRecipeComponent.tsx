@@ -1,8 +1,7 @@
 import { Button, Box } from "@primer/react";
 import './ShapedRecipeComponent.css'
-import { missingTexture, getTextureURL, blockBaseURL } from "../../../src/TextureURLCreator";
+import { missingTexture, getTextureURL, blockBaseURL, arrowURL } from "../../../src/TextureURLCreator";
 import { useState } from "react";
-import arrowImage from "./arrowImage.png"
 
 
 export default function ShapedRecipeComponent(props: {
@@ -92,7 +91,7 @@ export default function ShapedRecipeComponent(props: {
                             }))}
                         </div>
                     </div>
-                    <img src={arrowImage} className="arrowImage" />
+                    <img src={arrowURL} className="arrowImage" />
                     <div>
                         <div className="slot">
                             {resultImage}

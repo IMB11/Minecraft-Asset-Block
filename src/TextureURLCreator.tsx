@@ -19,3 +19,4 @@ export function getTextureURL(location: string): string {
 }
 
 export const blockBaseURL = "https://raw.githubusercontent.com/mineblock11/Minecraft-Asset-Block/main/src/rendered-blocks/"
+export const arrowURL = "https://raw.githubusercontent.com/mineblock11/Minecraft-Asset-Block/main/src/arrowImage.png"
