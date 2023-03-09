@@ -1,11 +1,8 @@
 import { FileBlockProps, getLanguageFromFilename } from "@githubnext/blocks";
 import { Button, Box } from "@primer/react";
 import { useState } from "react";
-import mcAssetStore from "minecraft-assets";
 import ErrorComponent from "../../src/ErrorComponent";
-import ShapedRecipeComponent from "./components/ShapedRecipeComponent";
-
-const assets = mcAssetStore();
+import ShapedRecipeComponent from "./ShapedRecipeComponent";
 
 export default function ExampleFileBlock(props: FileBlockProps) {
   const { context, content, metadata, onUpdateMetadata } = props;

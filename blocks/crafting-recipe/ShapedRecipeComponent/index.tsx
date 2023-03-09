@@ -71,7 +71,7 @@ export default function ShapedRecipeComponent(props: {
                     <div>
                         <div className="recipe-grid-shaped">
                             {rows.map(row => row.map(item => {
-                                if (item == undefined) {
+                                if (!item) {
                                     return (<div></div>)
                                 }
 
