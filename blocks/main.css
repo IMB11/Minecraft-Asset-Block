@@ -1,0 +1,26 @@
+@import url("https://fontlibrary.org/face/minecraftia");
+
+.minecraft-tooltip {
+  border: 0.125em solid transparent;
+  font-family: "MinecraftiaRegular";
+  font-weight: normal;
+  font-style: normal;
+  background-image: linear-gradient(
+    rgba(16, 0, 16, 0.94),
+    rgba(37, 22, 37, 0.94)
+  );
+  word-spacing: 0.25em;
+  margin: 0.125em 0.125em;
+  padding: 0 1 1 1;
+  line-height: 1.125em;
+  white-space: nowrap;
+  font-size: 16px;
+  text-align: left;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+}
+
+.file-editor-json-mc {
+  width: 100%;
+  height: min-content;
+}

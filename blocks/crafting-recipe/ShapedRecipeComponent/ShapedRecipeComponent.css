@@ -13,11 +13,6 @@
   text-align: center;
 }
 
-.recipe-container > * {
-  pointer-events: none;
-  user-select: none;
-}
-
 .recipe-container > div,
 .recipe-container > img {
   padding: 0.5rem;
@@ -36,9 +31,21 @@ div.recipe-grid-shaped > div,
     inset -2px -2px 0px #ffffff;
 }
 
+div.recipe-grid-shaped > div,
+.slot {
+  display: flex;
+  align-items: center;
+}
+
 div.recipe-grid-shaped > div > img,
 .slot > img {
+  object-fit: cover;
+  display: table-cell;
+  margin: 0;
+  vertical-align: middle;
+}
+
+img.is-item {
   width: 50px;
   height: 50px;
-  align-self: center;
 }

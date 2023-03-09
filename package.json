@@ -12,6 +12,8 @@
     "minecraft-assets": "^1.9.1",
     "minecraft-data": "^3.30.0",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "react-json-editor-ajrm": "^2.5.14",
+    "react-tooltip": "^5.9.1"
   }
 }

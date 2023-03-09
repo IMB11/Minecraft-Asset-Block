@@ -1,7 +1,9 @@
 import { Button, Box } from "@primer/react";
+import { Tooltip } from 'react-tooltip'
+import { missingTexture, getTextureURL, blockBaseURL, arrowURL, urlExists } from "../../../src/TextureURLCreator";
+
 import './ShapedRecipeComponent.css'
-import { missingTexture, getTextureURL, blockBaseURL, arrowURL } from "../../../src/TextureURLCreator";
-import { useState } from "react";
+import 'react-tooltip/dist/react-tooltip.css'
 
 
 export default function ShapedRecipeComponent(props: {
@@ -40,12 +42,24 @@ export default function ShapedRecipeComponent(props: {
 
     if (resultItemTex == missingTexture) {
         if (resultID[0] !== "minecraft") {
-            resultImage = (<div><img src={resultItemTex} /></div>)
+            resultImage = (<div><img className="is-item" data-tooltip-id={resultID[1]} src={resultItemTex} width={60} height={60} data-tooltip-content={recipe["result"]["item"]} />
+                <Tooltip noArrow={true} id={resultID[1]} className="item-tooltip minecraft-tooltip" /></div>)
         } else {
-            resultImage = <div><img src={`${blockBaseURL}${resultID[1]}.png`} width={60} height={60} /></div>
+
+            let blockRenderURL = `${blockBaseURL}${resultID[1]}.png`
+
+            if (!urlExists(blockRenderURL)) {
+                let resultItemTex = getTextureURL("/block/" + resultID[1] + ".png")
+                resultImage = (<div><img className="is-item" data-tooltip-id={resultID[1]} src={resultItemTex} width={60} height={60} data-tooltip-content={recipe["result"]["item"]} />
+                    <Tooltip noArrow={true} id={resultID[1]} className="item-tooltip minecraft-tooltip" /></div>)
+            } else {
+                resultImage = (<div><img data-tooltip-id={resultID[1]} src={`${blockBaseURL}${resultID[1]}.png`} width={60} height={60} data-tooltip-content={recipe["result"]["item"]} />
+                    <Tooltip noArrow={true} id={resultID[1]} className="item-tooltip minecraft-tooltip" /></div>)
+            }
         }
     } else {
-        resultImage = (<div><img src={resultItemTex} /></div>)
+        resultImage = (<div><img data-tooltip-id={resultID[1]} className="is-item" src={resultItemTex} width={60} height={60} data-tooltip-content={recipe["result"]["item"]} />
+            <Tooltip noArrow={true} id={resultID[1]} className="item-tooltip minecraft-tooltip" /></div>)
     }
 
     return (<>
@@ -81,12 +95,17 @@ export default function ShapedRecipeComponent(props: {
 
                                 if (itemTex == missingTexture) {
                                     if (identifier[0] !== "minecraft") {
-                                        return (<div><img src={itemTex} /></div>)
+                                        return (<div><img className="is-item" data-tooltip-id={identifier[1]} src={itemTex} data-tooltip-content={item} />
+                                            <Tooltip noArrow={true} id={identifier[1]} className="item-tooltip minecraft-tooltip" /></div>)
                                     } else {
-                                        return (<div><img src={`${blockBaseURL}${identifier[1]}.png`} width={60} height={60} /></div>)
+                                        return (<div><img data-tooltip-id={identifier[1]} src={`${blockBaseURL}${identifier[1]}.png`} width={60} height={60} data-tooltip-content={item} />
+                                            <Tooltip noArrow={true} id={identifier[1]} className="item-tooltip minecraft-tooltip" /></div>)
                                     }
                                 } else {
-                                    return (<div><img src={itemTex} /></div>)
+                                    return (<div>
+                                        <img className="is-item" data-tooltip-id={identifier[1]} src={itemTex} data-tooltip-content={item} />
+                                        <Tooltip noArrow={true} id={identifier[1]} className="item-tooltip minecraft-tooltip" />
+                                    </div>)
                                 }
                             }))}
                         </div>

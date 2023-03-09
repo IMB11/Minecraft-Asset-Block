@@ -1,8 +1,9 @@
 import { FileBlockProps, getLanguageFromFilename } from "@githubnext/blocks";
-import { Button, Box } from "@primer/react";
 import { useState } from "react";
-import ErrorComponent from "../../src/ErrorComponent";
+import ErrorComponent from "../../src/components/ErrorComponent";
+import FileContents from "../../src/components/FileContentsComponent"
 import ShapedRecipeComponent from "./ShapedRecipeComponent";
+import '../main.css'
 
 export default function ExampleFileBlock(props: FileBlockProps) {
   const { context, content, metadata, onUpdateMetadata } = props;
@@ -11,8 +12,8 @@ export default function ExampleFileBlock(props: FileBlockProps) {
     : "N/A";
 
 
-  let jsonError = <></>
-  let renderer = <></>
+  let jsonError
+  let renderer
 
   try {
     const data = JSON.parse(content)
@@ -27,35 +28,22 @@ export default function ExampleFileBlock(props: FileBlockProps) {
     }
 
   } catch (e: any) {
-    jsonError = <ErrorComponent title="Recipe Parse Error" message={e} />
+    jsonError = <ErrorComponent title="Recipe Parse Error" message={e.toString()} />
+  }
+
+  if (jsonError) {
+    return (<>
+      {jsonError}
+    </>)
   }
 
   return (
     <>
       {jsonError}
       {renderer}
-      <Box p={4}>
-        <Box
-          borderColor="border.default"
-          borderWidth={1}
-          borderStyle="solid"
-          borderRadius={6}
-          overflow="hidden"
-        >
-          <Box
-            bg="canvas.subtle"
-            p={3}
-            borderBottomWidth={1}
-            borderBottomStyle="solid"
-            borderColor="border.default"
-          >
-            File Contents
-          </Box>
-
-          <Box p={4}>
-            <pre className="mt-3 p-3">{content}</pre>
-          </Box>
-        </Box>
-      </Box></>
+      <FileContents readonly={!props.isEditable} contents={props.content} onChange={(newContents: string) => {
+        props.onUpdateContent(newContents)
+      }} />
+    </>
   )
 }
