@@ -34,7 +34,7 @@ export default function FileContents(props: any) {
                         placeholder={JSON.parse(props.contents)}
                         onChange={(data: any) => {
                             if (data.error === false) {
-                                props.onChange(data.json)
+                                props.onChange(JSON.stringify(data.jsObject, null, "\t"))
                             }
                         }}
                     />
